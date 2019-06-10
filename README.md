@@ -65,4 +65,4 @@ Usage Notes or examples
 * What assertions need to be / should be made?
 
 #### UML
-![API UML](http://i.imgur.com/7v5ASc8.png)
+![](./assets/401-24.jpg)
