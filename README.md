@@ -50,14 +50,14 @@ Usage Notes or examples
 * Endpoint: `/:string/:all`
   * Returns a JSON object with a random difficulty string coding challenge in it.
   
-* Endpoint: `/:tree/:easy`
-  * Returns a JSON object with an easy difficulty tree coding challenge in it.
-* Endpoint: `/:tree/:medium`
-  * Returns a JSON object with a medium difficulty tree coding challenge in it.
-* Endpoint: `/:tree/:hard`
-  * Returns a JSON object with an hard difficulty tree coding challenge in it.
-* Endpoint: `/:tree/:all`
-  * Returns a JSON object with a random difficulty tree coding challenge in it.
+* Endpoint: `/:list/:easy`
+  * Returns a JSON object with an easy difficulty list coding challenge in it.
+* Endpoint: `/:list/:medium`
+  * Returns a JSON object with a medium difficulty list coding challenge in it.
+* Endpoint: `/:list/:hard`
+  * Returns a JSON object with an hard difficulty list coding challenge in it.
+* Endpoint: `/:list/:all`
+  * Returns a JSON object with a random difficulty list coding challenge in it.
   
 #### Tests
 * How do you run tests? `npm run test`
