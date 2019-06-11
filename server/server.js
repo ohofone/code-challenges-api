@@ -8,6 +8,11 @@ const morgan = require('morgan');
 
 const determineChallengeQuery = require('./determineChallengeQuery.js');
 const queryDatabase = require('./queryDataBase.js');
+const getCurrentQuestion = require('./getCurrentQuestion.js');
+const getSolution = require('./getSolution.js');
+const setCurrentUserQuestion = require('./setCurrentUserQuestion.js');
+const endCurrentUserQuestion = require('./endCurrentUserQuestion.js');
+// const updateQuestionAverageTime = ;
 
 const app = express();
 
@@ -17,13 +22,24 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.get('/:dataType/:difficulty', getChallenge);
+app.get('/question/:dataType?/:difficulty?/:userID?', getChallenge);
+app.post('/currentQuestion', getCurrentQuestion);
+app.get('/solution', getSolution);
+
+
 
 function getChallenge(request, response) {
   let {query, values} = determineChallengeQuery(request.params);
+
   queryDatabase(query, values)
-    .then(result => {
-      response.send(result)
+    .then((question) => {
+      if (request.params.userID) {
+        setCurrentUserQuestion(request.params.userID, question.id);
+      }
+      return question;
+    })
+    .then(question => {
+      response.send(question)
     });
 }
 

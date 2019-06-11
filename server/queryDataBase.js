@@ -21,7 +21,6 @@ module.exports = (query, values) => {
   .then((result) => {
     console.log(result);
     if (!result.rowCount) {
-      // TODO: if no challenges --------------------------------------------------
       return [];
     }
     return result.rows;

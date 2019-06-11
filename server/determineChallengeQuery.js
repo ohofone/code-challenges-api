@@ -13,8 +13,8 @@ module.exports = (params) => {
   let query = '';
   let values = [];
 
-  if (params.dataType === 'anyDatatype' &&
-      params.difficulty === 'anyDifficulty') {
+  if ((params.dataType === 'anyDatatype' || params.dataType === undefined) &&
+      (params.difficulty === 'anyDifficulty' || params.difficulty === undefined)) {
     // any datatype challenge of any difficulty
     query = 'SELECT * FROM challenges ORDER BY random() LIMIT 1;';
 
@@ -23,7 +23,7 @@ module.exports = (params) => {
     query = `SELECT * FROM challenges WHERE difficulty=$1 ORDER BY random() LIMIT 1;`;
     values = [params.difficulty];
 
-  } else if (params.difficulty === 'anyDifficulty') {
+  } else if (params.difficulty === 'anyDifficulty' || params.difficulty === undefined) {
     // Any difficulty challenge with certain data type
     query = `SELECT * FROM challenges WHERE dataType=$1 ORDER BY random() LIMIT 1;`;
     values = [params.dataType];

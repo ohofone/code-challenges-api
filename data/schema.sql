@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS challenges;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE challenges (
     id SERIAL PRIMARY KEY,
@@ -9,6 +10,14 @@ CREATE TABLE challenges (
     difficulty VARCHAR(32),
     edgeCases VARCHAR(255),
     solution VARCHAR(2048) NOT NULL
+);
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    amazon_id VARCHAR(255),
+    has_open_question BOOLEAN DEFAULT FALSE,
+    question_id INTEGER,
+    start_time BIGINT
 );
 
 INSERT INTO challenges (
