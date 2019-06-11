@@ -9,7 +9,11 @@ module.exports = (user_id, question_id) => {
   queryDatabase(userCheckQuery, userValues)
     .then((user) => {
       if (!user.length) {
-        addNewUser(user_id, question_id).then(() => {
+        console.log('--------------------------------------------------------------------------------');
+        console.log(addNewUser(user_id));
+        console.log('--------------------------------------------------------------------------------');
+
+        addNewUser(user_id).then(() => {
           updateCurrentQuestion(user_id, question_id);
         });
       } else {
