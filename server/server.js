@@ -23,8 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.get('/question/:dataType?/:difficulty?/:userID?', getChallenge);
-app.post('/currentQuestion', getCurrentQuestion);
-app.get('/solution', getSolution);
+app.get('/currentQuestion/:userID', getCurrentQuestion);
+app.get('/solution/:userID', getSolution);
 
 
 
