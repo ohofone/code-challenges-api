@@ -212,7 +212,7 @@ INSERT INTO challenges (
   )
   VALUES (
   'Find the largest value in a linked list',
-  'list',
+  'linkedlist',
   'O of n, where n is the numder of nodes within the list',
   'O of 1',
   'easy',
@@ -231,7 +231,7 @@ INSERT INTO challenges (
   )
   VALUES (
   'Find the middle element of a singly linked list in one pass',
-  'list',
+  'linkedlist',
   'O of n, where n is the number of nodes within the list',
   'O of 1',
   'medium',
@@ -250,7 +250,7 @@ INSERT INTO challenges (
   )
   VALUES (
   'Reverse a linked list',
-  'list',
+  'linkedlist',
   'O of n, where n is the number of nodes within the list',
   'O of 1',
   'medium',
@@ -269,7 +269,7 @@ INSERT INTO challenges (
   )
   VALUES (
   'Find the kth node from the end of the linked list',
-  'list',
+  'linkedlist',
   'O of n, where n is the numder of nodes within the list',
   'O of 1',
   'hard',
@@ -288,7 +288,7 @@ INSERT INTO challenges (
   )
   VALUES (
   'Check if a linked list contains a loop',
-  'list',
+  'linkedlist',
   'O of n, where n is the numder of nodes within the list',
   'O of 1',
   'hard',
