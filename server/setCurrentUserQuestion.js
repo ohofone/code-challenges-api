@@ -37,7 +37,7 @@ module.exports = (user_id, question_id) => {
    * @param question_id, id of current question the user is working on
    */
   function updateCurrentQuestion(user_id, question_id) {
-    const updateCurrentQuestionQuery = `UPDATE users SET (has_open_question=$1, question_id=$2, start_time=$3) WHERE amazon_id=$4;`;
+    const updateCurrentQuestionQuery = `UPDATE users SET has_open_question=$1, question_id=$2, start_time=$3 WHERE amazon_id=$4;`;
     const updateCurrentQuestionValues = [true, question_id, Date.now(), user_id];
     return queryDatabase(updateCurrentQuestionQuery, updateCurrentQuestionValues);
   }
