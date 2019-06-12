@@ -17,15 +17,17 @@ module.exports = request => {
           timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
           timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
         ) {
+          let currentAverage = question.avg_time === null ? 0 : 1;
+          let completions = question.completions === null ? 0 : 1;
           let newAverage =
-            (question.avg_time * question.completions + timeTakenMinutes) /
-            (question.completions + 1);
+            (currentAverage * completions + timeTakenMinutes) /
+            (completions + 1);
 
           //update query to questions table
           const updateQuestionQuery = `UPDATE challenges SET avg_time=$1, completions=$2 WHERE id=$3 RETURNING *;`;
           const updateQuestionValues = [
             newAverage,
-            question.completions + 1,
+            completions + 1,
             question.id,
           ];
           return queryDatabase(updateQuestionQuery, updateQuestionValues).then(
