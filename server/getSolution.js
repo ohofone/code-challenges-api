@@ -1,18 +1,19 @@
 'use strict';
 const queryDatabase = require('./queryDataBase.js');
 
-module.exports = request => {
+module.exports = (request, response) => {
   const userQuery = `SELECT * FROM users WHERE amazon_id=$1;`;
   const userValues = [request.params.userID];
   const MIN_REASONABLE_TIME_MINUTES = 5;
   const MAX_REASONABLE_TIME_MINUTES = 120;
 
   return queryDatabase(userQuery, userValues).then(user => {
+    let result = [];
     if (user.length && user[0].has_open_question) {
       let timeTakenMinutes = (Date.now() - user.start_time) / 60000;
       const questionQuery = `SELECT * FROM challenges WHERE id=$1;`;
       const questionValues = [user[0].question_id];
-      return queryDatabase(questionQuery, questionValues).then(question => {
+      result = queryDatabase(questionQuery, questionValues).then(question => {
         if (
           timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
           timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
@@ -32,13 +33,17 @@ module.exports = request => {
           ];
           return queryDatabase(updateQuestionQuery, updateQuestionValues).then(
             question => {
+              response.send(question);
               return question;
             }
           );
         } else {
+          response.send(question);
           return question;
         }
       });
+    } else {
+      response.send(result);
     }
   });
 };
