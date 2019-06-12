@@ -15,7 +15,6 @@ module.exports = (request, response) => {
         const questionValues = [user[0].question_id];
 
         return queryDatabase(questionQuery, questionValues).then((question) => {
-          console.log(question);
           response.send(question);
         });
       } else {
