@@ -11,7 +11,7 @@ const queryDatabase = require('./queryDataBase.js');
 const getCurrentQuestion = require('./getCurrentQuestion.js');
 const getSolution = require('./getSolution.js');
 const setCurrentUserQuestion = require('./setCurrentUserQuestion.js');
-const endCurrentUserQuestion = require('./endCurrentUserQuestion.js');
+// const endCurrentUserQuestion = require('./endCurrentUserQuestion.js');
 // const updateQuestionAverageTime = ;
 
 const app = express();
