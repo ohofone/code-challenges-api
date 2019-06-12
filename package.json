@@ -13,12 +13,14 @@
     "express": "^4.17.1",
     "jest": "^24.8.0",
     "morgan": "^1.9.1",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "jest": "jest --verbose --coverage"
   },
   "keywords": [],
   "author": "",

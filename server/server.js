@@ -26,8 +26,6 @@ app.get('/question/:dataType?/:difficulty?/:userID?', getChallenge);
 app.get('/currentQuestion/:userID', getCurrentQuestion);
 app.get('/solution/:userID', getSolution);
 
-
-
 function getChallenge(request, response) {
   let {query, values} = determineChallengeQuery(request.params);
 
@@ -47,5 +45,6 @@ module.exports = {
   start: (PORT) => {
     app.listen(PORT);
     console.log(`Server listening on ${PORT}`);
-  }
+  },
+  app: app,
 };
