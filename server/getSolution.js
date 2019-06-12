@@ -20,13 +20,16 @@ module.exports = (request, response) => {
       return queryDatabase(questionQuery, questionValues).then(question => {
         question = question[0];
         if (
-            timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
-            timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
-            ) {
-
-          let currentAverage = question.avg_time === null ? 0 : question.avg_time;
-          let completions = question.completions === null ? 0 : question.completions;
-          let newAverage = (currentAverage * completions + timeTakenMinutes) / (completions + 1);
+          timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
+          timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
+        ) {
+          let currentAverage =
+            question.avg_time === null ? 0 : question.avg_time;
+          let completions =
+            question.completions === null ? 0 : question.completions;
+          let newAverage =
+            (currentAverage * completions + timeTakenMinutes) /
+            (completions + 1);
 
           newAverage = Math.floor(newAverage);
 
@@ -51,6 +54,4 @@ module.exports = (request, response) => {
       response.send(result);
     }
   });
-
-
 };
