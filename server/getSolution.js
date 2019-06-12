@@ -44,12 +44,12 @@ module.exports = (request, response) => {
           ];
           return queryDatabase(updateQuestionQuery, updateQuestionValues).then(
             question => {
-              response.send([question]);
+              response.send(question);
               return question;
             }
           );
         } else {
-          response.send([question]);
+          response.send(question);
           return question;
         }
       });
