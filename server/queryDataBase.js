@@ -21,7 +21,6 @@ client.on('error', err => console.error(err));
 module.exports = (query, values) => {
   return client.query(query, values)
   .then((result) => {
-    console.log(result);
     if (!result.rowCount) {
       return [];
     }

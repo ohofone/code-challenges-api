@@ -34,12 +34,12 @@ function getChallenge(request, response) {
   queryDatabase(query, values)
     .then((question) => {
       if (request.params.userID) {
-        setCurrentUserQuestion(request.params.userID, question.id);
+        setCurrentUserQuestion(request.params.userID, question[0].id);
       }
       return question;
     })
     .then(question => {
-      response.send(question)
+      response.send(question);
     });
 }
 

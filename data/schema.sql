@@ -68,7 +68,7 @@ INSERT INTO challenges (
   solution
   )
   VALUES (
-  'Find the missing number in a given an unsorted integer array from one to hundred?',
+  'Find the missing number in a given unsorted integer array from one to hundred.',
   'array',
   'O of n, where n is the size of the array',
   'O of 1',
@@ -277,13 +277,13 @@ INSERT INTO challenges (
   solution
   )
   VALUES (
-  'Find the kth node from the end of the linked list',
+  'Find the kayth node from the end of the linked list',
   'linkedlist',
   'O of n, where n is the numder of nodes within the list',
   'O of 1',
   'hard',
   'If there is only one node:k is greater than the length of the list:k is a negative number',
-  'The optimal solution for this problem is to use two pointers, a fast and a slow. When the fast pointer gets kth nodes from the begining, start the slow node. When the fast node gets to the end, the slow node will be kth node from the end.'
+  'The optimal solution for this problem is to use two pointers, a fast and a slow. When the fast pointer gets kayth nodes from the beginning, start the slow node. When the fast node gets to the end, the slow node will be kth node from the end.'
 );
 
 INSERT INTO challenges (
