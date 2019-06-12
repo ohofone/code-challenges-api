@@ -10,13 +10,13 @@ module.exports = (request, response) => {
   return queryDatabase(userQuery, userValues).then(user => {
     let result = [];
     if (user.length && user[0].has_open_question) {
-      let timeTakenMinutes = (Date.now() - user.start_time) / 60000;
+      let timeTakenMinutes = (Date.now() - user[0].start_time) / 60000;
       const questionQuery = `SELECT * FROM challenges WHERE id=$1;`;
       const questionValues = [user[0].question_id];
       result = queryDatabase(questionQuery, questionValues).then(question => {
         console.log('====================================================');
         console.log(timeTakenMinutes);
-        console.log(user.start_time);
+        console.log(user[0].start_time);
         console.log('====================================================');
         if (
           timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
