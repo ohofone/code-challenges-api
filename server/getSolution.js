@@ -4,7 +4,7 @@ const queryDatabase = require('./queryDataBase.js');
 module.exports = (request, response) => {
   const userQuery = `SELECT * FROM users WHERE amazon_id=$1;`;
   const userValues = [request.params.userID];
-  const MIN_REASONABLE_TIME_MINUTES = 5;
+  const MIN_REASONABLE_TIME_MINUTES = 1; //TODO: change time back
   const MAX_REASONABLE_TIME_MINUTES = 120;
 
   return queryDatabase(userQuery, userValues).then(user => {
