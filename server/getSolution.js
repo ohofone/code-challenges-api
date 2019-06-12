@@ -33,6 +33,7 @@ module.exports = (request, response) => {
           let newAverage =
             (currentAverage * completions + timeTakenMinutes) /
             (completions + 1);
+          newAverage = Math.floor(newAverage);
 
           //update query to questions table
           const updateQuestionQuery = `UPDATE challenges SET avg_time=$1, completions=$2 WHERE id=$3 RETURNING *;`;
