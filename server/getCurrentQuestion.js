@@ -9,7 +9,7 @@ module.exports = (request, response) => {
 
   return queryDatabase(userQuery, userValues)
     .then((user) => {
-      console.log(user);
+
       if (user.length && user[0].has_open_question) {
         const questionQuery = 'SELECT * FROM challenges WHERE id=$1;';
         const questionValues = [user[0].question_id];
