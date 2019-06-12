@@ -10,8 +10,8 @@ CREATE TABLE challenges (
     difficulty VARCHAR(32),
     edgeCases VARCHAR(255),
     solution VARCHAR(2048) NOT NULL,
-    avg_time INTEGER,
-    completions INTEGER
+    avg_time INTEGER DEFAULT 0,
+    completions INTEGER DEFAULT 0
 );
 
 CREATE TABLE users (
@@ -205,7 +205,7 @@ INSERT INTO challenges (
   VALUES (
   'Given a string, replace the duplicate characters with the number of times it appears as a duplicate',
   'string',
-  'O 0f n, n is the number of characters in the sentence',
+  'O of n, n is the number of characters in the sentence',
   'O of 1',
   'hard',
   'special symbols',

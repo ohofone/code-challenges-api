@@ -14,12 +14,20 @@ module.exports = (request, response) => {
       const questionQuery = `SELECT * FROM challenges WHERE id=$1;`;
       const questionValues = [user[0].question_id];
       result = queryDatabase(questionQuery, questionValues).then(question => {
+        console.log('====================================================');
+        console.log(timeTakenMinutes);
+        console.log('====================================================');
         if (
           timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
           timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
         ) {
-          let currentAverage = question.avg_time === null ? 0 : 1;
-          let completions = question.completions === null ? 0 : 1;
+          console.log('====================================================');
+          console.log('inside update');
+          console.log('====================================================');
+          let currentAverage =
+            question.avg_time === null ? 0 : question.avg_time;
+          let completions =
+            question.completions === null ? 0 : question.completions;
           let newAverage =
             (currentAverage * completions + timeTakenMinutes) /
             (completions + 1);
