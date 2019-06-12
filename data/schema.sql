@@ -9,7 +9,9 @@ CREATE TABLE challenges (
     bigOSpace VARCHAR(255),
     difficulty VARCHAR(32),
     edgeCases VARCHAR(255),
-    solution VARCHAR(2048) NOT NULL
+    solution VARCHAR(2048) NOT NULL,
+    avg_time INTEGER,
+    completions INTEGER
 );
 
 CREATE TABLE users (
