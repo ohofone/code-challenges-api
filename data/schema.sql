@@ -19,7 +19,7 @@ CREATE TABLE users (
     amazon_id VARCHAR(255),
     has_open_question BOOLEAN DEFAULT FALSE,
     question_id INTEGER,
-    start_time BIGINT
+    start_time INTEGER
 );
 
 INSERT INTO challenges (

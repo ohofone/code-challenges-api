@@ -16,6 +16,7 @@ module.exports = (request, response) => {
       result = queryDatabase(questionQuery, questionValues).then(question => {
         console.log('====================================================');
         console.log(timeTakenMinutes);
+        console.log(user.start_time);
         console.log('====================================================');
         if (
           timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
