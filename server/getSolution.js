@@ -14,6 +14,7 @@ module.exports = (request, response) => {
       const questionQuery = `SELECT * FROM challenges WHERE id=$1;`;
       const questionValues = [user[0].question_id];
       result = queryDatabase(questionQuery, questionValues).then(question => {
+        question = question[0];
         console.log('====================================================');
         console.log(timeTakenMinutes);
         console.log(user[0].start_time);
@@ -42,12 +43,12 @@ module.exports = (request, response) => {
           ];
           return queryDatabase(updateQuestionQuery, updateQuestionValues).then(
             question => {
-              response.send(question);
+              response.send([question]);
               return question;
             }
           );
         } else {
-          response.send(question);
+          response.send([question]);
           return question;
         }
       });
