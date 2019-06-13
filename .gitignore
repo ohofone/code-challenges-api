@@ -7,6 +7,8 @@ build
 # Created by https://www.gitignore.io/api/vim,osx,node,linux,windows
 ### Linux ###
 *~
+.idea
+.kate-swp
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
