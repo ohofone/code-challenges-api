@@ -30,14 +30,12 @@ app.get('/question/:dataType?/:difficulty?/:userID?', getChallenge);
 app.get('/currentQuestion/:userID', getCurrentQuestion);
 app.get('/solution/:userID', getSolution);
 
-
 /**
  * Gets the correct code challenge based on user input
  * 
  * @param {object} - request 
  * @param {object} - response 
  */
-
 function getChallenge(request, response) {
   let {query, values} = determineChallengeQuery(request.params);
 
@@ -58,4 +56,5 @@ module.exports = {
     app.listen(PORT);
     console.log(`Server listening on ${PORT}`);
   },
+  app: app,
 };
