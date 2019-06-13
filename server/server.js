@@ -58,8 +58,5 @@ module.exports = {
     app.listen(PORT);
     console.log(`Server listening on ${PORT}`);
   },
-<<<<<<< HEAD
   app: app,
-=======
->>>>>>> 0ccfbaa50e6c8ac1866115551e9f4909da8d10f8
 };

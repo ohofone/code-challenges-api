@@ -14,7 +14,6 @@ const queryDatabase = require('./queryDataBase.js');
  */
 
 module.exports = (request, response) => {
-  // check users table for open question => get question id
   const userQuery = `SELECT * FROM users WHERE amazon_id=$1;`;
   const userValues = [request.params.userID];
 
