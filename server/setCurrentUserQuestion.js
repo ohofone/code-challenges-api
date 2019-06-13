@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Adds user to database if they dont exist
+ * or updates user info if they do exist
+ * @module setCurrentUserQuestion
+ */
+
 const queryDatabase = require('./queryDataBase.js');
 
 module.exports = (user_id, question_id) => {

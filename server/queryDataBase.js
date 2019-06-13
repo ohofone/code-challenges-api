@@ -2,7 +2,7 @@
 
 /**
  * Queries Postgres
- * @module
+ * @module queryDataBase
  */
 
 const pg = require('pg');
@@ -18,6 +18,7 @@ client.on('error', err => console.error(err));
  * @param {Array} values
  * @returns {*|Promise<Array>} result of query to database
  */
+
 module.exports = (query, values) => {
   return client.query(query, values)
     .then((result) => {

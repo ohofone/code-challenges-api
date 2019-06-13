@@ -11,6 +11,7 @@
  * @param {Object} params, object with dataType and difficulty keys
  * @returns {{query: string, values: Array}}
  */
+
 module.exports = (params) => {
   let query = '';
   let values = [];
