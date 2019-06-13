@@ -21,13 +21,13 @@
 ##### Exported Values and Methods
 
 ###### `determineChallenge(object) -> object`
-Given an object with data type and difficulty keys, determines type of query to make and returns and object with the query and values.
+Given an object with data type and difficulty keys, determines type of query to make and returns an object with the query and values.
 
 ###### `endCurrentUserQuestion(string) -> object`
 Given a user id, update the session in the database and returns false (session ended) if successful.
 
 ###### `getCurrentQuestion(request, response) -> object`
-Given a user id, checks the database for open questions associated with that user. Returns an object with the question details is successful, or an empty array if there are no open questions.
+Given a user id, checks the database for open questions associated with that user. Returns an object with the question details if successful, or an empty array if there are no open questions.
 
 
 ###### `getSolution(request, response) -> object`
@@ -53,34 +53,42 @@ Given an object containing the question details and the time taken to complete t
 
 #### Running the app
 * `npm start`
-* Example Endpoint: `/:dataType/:difficulty`
+* Example Endpoint: `question/:dataType/:difficulty/:userID`
 
-* Endpoint: `/:array/:easy`
+* Endpoint: `question/:array/:easy/:userID`
   * Returns a JSON object with an easy difficulty array coding challenge in it.
-* Endpoint: `/:array/:medium`
+* Endpoint: `question/:array/:medium/:userID`
   * Returns a JSON object with a medium difficulty array coding challenge in it.
-* Endpoint: `/:array/:hard`
+* Endpoint: `question/:array/:hard/:userID`
   * Returns a JSON object with an hard difficulty array coding challenge in it.
-* Endpoint: `/:array/:all`
+* Endpoint: `question/:array/:all/:userID`
   * Returns a JSON object with a random difficulty array coding challenge in it.
   
-* Endpoint: `/:string/:easy`
+* Endpoint: `question/:string/:easy/:userID`
   * Returns a JSON object with an easy difficulty string coding challenge in it.
-* Endpoint: `/:string/:medium`
+* Endpoint: `question/:string/:medium/:userID`
   * Returns a JSON object with a medium difficulty string coding challenge in it.
-* Endpoint: `/:string/:hard`
+* Endpoint: `question/:string/:hard/:userID`
   * Returns a JSON object with an hard difficulty string coding challenge in it.
-* Endpoint: `/:string/:all`
+* Endpoint: `question/:string/:all/:userID`
   * Returns a JSON object with a random difficulty string coding challenge in it.
   
-* Endpoint: `/:list/:easy`
+* Endpoint: `question/:list/:easy/:userID`
   * Returns a JSON object with an easy difficulty list coding challenge in it.
-* Endpoint: `/:list/:medium`
+* Endpoint: `question/:list/:medium/:userID`
   * Returns a JSON object with a medium difficulty list coding challenge in it.
-* Endpoint: `/:list/:hard`
+* Endpoint: `question/:list/:hard/:userID`
   * Returns a JSON object with an hard difficulty list coding challenge in it.
-* Endpoint: `/:list/:all`
+* Endpoint: `question/:list/:all/:userID`
   * Returns a JSON object with a random difficulty list coding challenge in it.
+  
+
+* Endpoint: `/solution/:userID`
+ * Returns a JSON object with all details about question being worked on.
+
+* Endpoint: `/currentQuestion/:userID`
+ * Returns a JSON object with all details about question being worked on.
+
   
 #### Tests
 * How do you run tests? `npm run test`
