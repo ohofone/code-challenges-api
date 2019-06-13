@@ -34,11 +34,11 @@ INSERT INTO challenges (
   VALUES (
   'Find the top two largest numbers in an array',
   'array',
-  'O of n, where n is the size of the array',
+  'O of n, where n is the number of elements in the array',
   'O of 1',
   'easy',
   'all values are equal:if you only have one value',
-  'The optimal solution for this problem is to set two variables and check each number'
+  'The optimal solution for this problem is to use two variables and check each array index to see if it is larger than the variables'
 );
 
 INSERT INTO challenges (
@@ -51,13 +51,13 @@ INSERT INTO challenges (
   solution
   )
   VALUES (
-  'Find the number of even numbers within an array',
+  'Find the number of even integers within an array',
   'array',
-  'O of n, where n is the size of the array',
+  'O of n, where n is the number of elements in the array',
   'O of 1',
   'easy',
   'No even numbers:no numbers within an array',
-  'The optimal solution for this problem is to check each index for even numbers and increment a counter'
+  'The optimal solution for this problem is to check each array element and increment a counter if the number is even'
 );
 
 INSERT INTO challenges (
@@ -70,13 +70,13 @@ INSERT INTO challenges (
   solution
   )
   VALUES (
-  'Find the missing number in a given unsorted integer array from one to hundred.',
+  'Find the missing number in an unsorted array of integers from one to one hundred',
   'array',
-  'O of n, where n is the size of the array',
+  'O of n, where n is the number of elements in the array',
   'O of 1',
   'medium',
   'more than one missing value',
-  'The optimal solution for this problem is to calculate the sum of the values in the array and subtract it from the expected sum of 5,050.'
+  'The optimal solution for this problem is to calculate the sum of the values in the array and subtract it from the expected sum of 5,050'
 );
 
 INSERT INTO challenges (
@@ -91,8 +91,8 @@ INSERT INTO challenges (
   VALUES (
   'Find the duplicate number in an integer array',
   'array',
-  'O of n, where n is the size of the array',
-  'O of n, where n is the size of the set',
+  'O of n, where n is the number of elements in the array',
+  'O of n, where n is the number of elements in the set',
   'medium',
   'more than one duplicate:no duplicate values',
   'The optimal solution for this problem is use a set to store the duplicate values'
@@ -110,11 +110,11 @@ INSERT INTO challenges (
   VALUES (
   'Given an array, split the array into two sub arrays where the average value of each sub array is equal. Return false if not possible',
   'array',
-  'O of n squared, where n is the length of the array',
+  'O of n squared, where n is the number of elements of the array',
   'O of 1',
   'hard',
   'No even numbers:no numbers within an array',
-  'The optimal solution for this problem is to find the sum of the array of elements. Keep track of the sum for each sub array, to confirm average subtract the sub array from total sum.'
+  'The optimal solution for this problem is to find the sum of the initial array. Keep track of the sum of each sub array. To confirm, subtract the average of one subarray from the total average.'
 );
 
 INSERT INTO challenges (
@@ -129,7 +129,7 @@ INSERT INTO challenges (
   VALUES (
   'Determine if a given string is a palindrome, meaning the string is the same when reversed.',
   'string',
-  'O 0f n, n is the length of the string',
+  'O of n, n is the length of the string',
   'O of 1',
   'easy',
   'single char string:odd or even length:case-insensitive',
@@ -148,11 +148,11 @@ INSERT INTO challenges (
   VALUES (
   'Count the number of vowels in a string',
   'string',
-  'O 0f n, n is the length of the string',
+  'O of n, n is the length of the string',
   'O of 1',
   'easy',
   'case-insensitive',
-  'The optimal solution for this problem is to filter and regex to increment counter when vowel is found.'
+  'The optimal solution for this problem is to filter and use a regular expression to match vowels, incrementing a counter each time one is found.'
 );
 
 INSERT INTO challenges (
@@ -167,7 +167,7 @@ INSERT INTO challenges (
   VALUES (
   'Reverse the words in a given sentence',
   'string',
-  'O 0f n, n is the number of words in the sentence',
+  'O of n, n is the number of words in the sentence',
   'O of 1',
   'medium',
   'one word sentence',
@@ -186,11 +186,11 @@ INSERT INTO challenges (
   VALUES (
   'Given two strings, determine if they are one edit from being the same. Return true or false',
   'string',
-  'O 0f n, n is the number of characters in the larger string',
+  'O of n, n is the number of characters in the larger string',
   'O of 1',
   'medium',
   '',
-  'The optimal solution for this problem is to iterate the over both strings and incrementing the differences. If the difference is equal to or greater than 2, return false.'
+  'The optimal solution for this problem is to iterate the over both strings and increment a counter whenever there is a difference. If the difference is equal to or greater than 2, return false.'
 );
 
 INSERT INTO challenges (
@@ -209,7 +209,7 @@ INSERT INTO challenges (
   'O of 1',
   'hard',
   'special symbols',
-  'The optimal solution for this problem is to loop through the string, when a new character is encountered add to an object with the key value of the character equal to one. Each time you encounter a duplicate, replace the character with the value from the object and increase the counter.'
+  'The optimal solution for this problem is to loop through the string. When a new character is encountered, add the new character to an object with the character as the key and value equal to one. Each time you encounter a duplicate, replace the character with the value from the object and increment the corresponding value.'
 );
 
 INSERT INTO challenges (
@@ -228,7 +228,7 @@ INSERT INTO challenges (
   'O of 1',
   'easy',
   'Non integer values:duplicate values',
-  'The optimal solution for this problem is to iterate through the linked list checking each nodes value agaisnt your stored max value.'
+  'The optimal solution for this problem is to iterate through the linked list. Check each node value against your stored max value.'
 );
 
 INSERT INTO challenges (
@@ -247,7 +247,7 @@ INSERT INTO challenges (
   'O of 1',
   'medium',
   'even number nodes',
-  'The optimal solution for this problem is to use two pointers. One that moves twice as fast as the other. When the fast one reaches the end, the slow one will be at the middle.'
+  'The optimal solution for this problem is to use two pointers, one which moves twice as fast as the other. When the fast pointer reaches the end, the slow pointer will be at the middle.'
 );
 
 INSERT INTO challenges (
@@ -266,7 +266,7 @@ INSERT INTO challenges (
   'O of 1',
   'medium',
   'If there is only one node',
-  'The optimal solution for this problem is to use three pointers and modify the linked list in place.'
+  'The optimal solution for this problem is to use three tracking variables and modify the linked list as you traverse.'
 );
 
 INSERT INTO challenges (
@@ -285,7 +285,7 @@ INSERT INTO challenges (
   'O of 1',
   'hard',
   'If there is only one node:k is greater than the length of the list:k is a negative number',
-  'The optimal solution for this problem is to use two pointers, a fast and a slow. When the fast pointer gets kayth nodes from the beginning, start the slow node. When the fast node gets to the end, the slow node will be kth node from the end.'
+  'The optimal solution for this problem is to use two pointers, a fast and a slow. When the fast pointer gets kayth nodes from the beginning, start the slow node. When the fast pointer gets to the end, the slow pointer will be referencing the kayth node from the end.'
 );
 
 INSERT INTO challenges (
@@ -298,11 +298,11 @@ INSERT INTO challenges (
   solution
   )
   VALUES (
-  'Check if a linked list contains a loop',
+  'Determine if a linked list contains a loop',
   'linkedlist',
-  'O of n, where n is the numder of nodes within the list',
+  'O of n, where n is the numder of nodes in the list',
   'O of 1',
   'hard',
   'If there is only one node',
-  'The optimal solution for this problem is to use two pointers. One that moves twice as fast as the other. If the fast node gets to the end, there is no loop. If the slow and fast are ever the same node, there is a loop.'
+  'The optimal solution for this problem is to use two pointers. One pointer moves twice as fast as the other. If the fast pointer gets to the end of the list, there is no loop. If the slow and fast pointers ever reference the same node, there is a loop.'
 );

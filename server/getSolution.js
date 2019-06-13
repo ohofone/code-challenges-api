@@ -1,11 +1,27 @@
 'use strict';
+
+/**
+ * Sends solution back after question is completed
+ * @module getSolution
+ */
 const queryDatabase = require('./queryDataBase.js');
 const endCurrentUserQuestion = require('./endCurrentUserQuestion.js');
+const updateTime = require('./updateTime.js');
+
+
+/**
+ * Checks database for solution associated with open question
+ * Calculates and stores average time for each question completed
+ * 
+ * @param {object} - request
+ * @param {object} - response
+ * @returns {{question}} - object with all information related to open question
+ */
 
 module.exports = (request, response) => {
   const userQuery = `SELECT * FROM users WHERE amazon_id=$1;`;
   const userValues = [request.params.userID];
-  const MIN_REASONABLE_TIME_MINUTES = 1; //TODO: change time back
+  const MIN_REASONABLE_TIME_MINUTES = 1;
   const MAX_REASONABLE_TIME_MINUTES = 120;
 
   return queryDatabase(userQuery, userValues).then(user => {
@@ -20,28 +36,11 @@ module.exports = (request, response) => {
       return queryDatabase(questionQuery, questionValues).then(question => {
         question = question[0];
         if (
-            timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
+          timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
             timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
-            ) {
-
-          let currentAverage = question.avg_time === null ? 0 : question.avg_time;
-          let completions = question.completions === null ? 0 : question.completions;
-          let newAverage = (currentAverage * completions + timeTakenMinutes) / (completions + 1);
-
-          newAverage = Math.floor(newAverage);
-
-          const updateQuestionQuery = `UPDATE challenges SET avg_time=$1, completions=$2 WHERE id=$3 RETURNING *;`;
-          const updateQuestionValues = [
-            newAverage,
-            completions + 1,
-            question.id,
-          ];
-          return queryDatabase(updateQuestionQuery, updateQuestionValues).then(
-            question => {
-              response.send(question);
-              return question;
-            }
-          );
+        ) {
+          updateTime(question, timeTakenMinutes);
+          response.send(question);
         } else {
           response.send(question);
           return question;
@@ -51,6 +50,4 @@ module.exports = (request, response) => {
       response.send(result);
     }
   });
-
-
 };

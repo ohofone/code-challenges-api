@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Runs the app
+ * @module server.js
+ */
 require('dotenv').config();
 
 const express = require('express');
@@ -26,8 +30,14 @@ app.get('/question/:dataType?/:difficulty?/:userID?', getChallenge);
 app.get('/currentQuestion/:userID', getCurrentQuestion);
 app.get('/solution/:userID', getSolution);
 
+app.use('/docs', express.static('docs'));
 
-
+/**
+ * Gets the correct code challenge based on user input
+ * 
+ * @param {object} - request 
+ * @param {object} - response 
+ */
 function getChallenge(request, response) {
   let {query, values} = determineChallengeQuery(request.params);
 
@@ -47,5 +57,6 @@ module.exports = {
   start: (PORT) => {
     app.listen(PORT);
     console.log(`Server listening on ${PORT}`);
-  }
+  },
+  app: app,
 };
