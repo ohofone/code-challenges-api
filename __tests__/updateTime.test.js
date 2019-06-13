@@ -5,6 +5,8 @@ const supertest = require('supertest');
 const app = require('../server/server.js').app;
 require('dotenv').config();
 
+const herokuUrl = 'https://oh-of-one.herokuapp.com';
+
 describe('update time', () => {
   it('should update the time if resonable time has passed', (done) => {
     return supertest(app)
