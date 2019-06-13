@@ -2,7 +2,14 @@
   "name": "code-challenges-api",
   "version": "1.0.0",
   "description": "",
-  "main": "promises.test.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "lint": "eslint '**/*.js'",
+    "lint-fix": "eslint --fix '**/*.js'"
+  },
   "directories": {
     "doc": "docs"
   },
@@ -16,11 +23,18 @@
     "pg": "^7.11.0",
     "supertest": "^4.0.2"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "jest": "jest --verbose --coverage"
+
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always",
+    "endOfLine": "lf"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
