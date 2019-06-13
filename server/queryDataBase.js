@@ -28,8 +28,8 @@ module.exports = (query, values) => {
       return result.rows;
     })
     .catch((error) => {
-    // TODO: same return as if no challenges in database -------------------------
-      console.error(error);
+      // TODO: same return as if no challenges in database -------------------------
+      // console.error(error);
       return [];
     });
 };

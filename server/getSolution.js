@@ -24,30 +24,31 @@ module.exports = (request, response) => {
   const MIN_REASONABLE_TIME_MINUTES = 1; //TODO: change time back
   const MAX_REASONABLE_TIME_MINUTES = 120;
 
-  return queryDatabase(userQuery, userValues).then(user => {
-    let result = [];
+  return queryDatabase(userQuery, userValues)
+    .then(user => {
+      let result = [];
 
-    endCurrentUserQuestion(user[0].id);
+      endCurrentUserQuestion(user[0].id);
 
-    if (user.length && user[0].has_open_question) {
-      let timeTakenMinutes = (Date.now() - user[0].start_time) / 60000;
-      const questionQuery = `SELECT * FROM challenges WHERE id=$1;`;
-      const questionValues = [user[0].question_id];
-      return queryDatabase(questionQuery, questionValues).then(question => {
-        question = question[0];
-        if (
-          timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
-            timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
-        ) {
-          updateTime(question, timeTakenMinutes);
-          response.send(question);
-        } else {
-          response.send(question);
-          return question;
-        }
-      });
-    } else {
-      response.send(result);
-    }
-  });
+      if (user.length && user[0].has_open_question) {
+        let timeTakenMinutes = (Date.now() - user[0].start_time) / 60000;
+        const questionQuery = `SELECT * FROM challenges WHERE id=$1;`;
+        const questionValues = [user[0].question_id];
+        return queryDatabase(questionQuery, questionValues).then(question => {
+          question = question[0];
+          if (
+            timeTakenMinutes > MIN_REASONABLE_TIME_MINUTES &&
+              timeTakenMinutes < MAX_REASONABLE_TIME_MINUTES
+          ) {
+            updateTime(question, timeTakenMinutes);
+            response.send(question);
+          } else {
+            response.send(question);
+            return question;
+          }
+        });
+      } else {
+        response.send(result);
+      }
+    });
 };
