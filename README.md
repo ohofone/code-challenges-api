@@ -6,7 +6,7 @@
 ### Author: Melissa Stock, Jagdeep Singh, Bonnie Wang, Jesse Van Volkinburg
 
 #### Documentation
-* [jsdoc](http://xyz.com) (Server assignments)
+* [jsdoc](http://xyz.com)
 
 ### Modules
 #### `determineChallenge.js`
