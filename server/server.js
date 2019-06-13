@@ -30,6 +30,8 @@ app.get('/question/:dataType?/:difficulty?/:userID?', getChallenge);
 app.get('/currentQuestion/:userID', getCurrentQuestion);
 app.get('/solution/:userID', getSolution);
 
+app.use('/docs', express.static('docs'));
+
 /**
  * Gets the correct code challenge based on user input
  * 
