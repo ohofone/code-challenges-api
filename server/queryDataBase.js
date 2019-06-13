@@ -20,15 +20,15 @@ client.on('error', err => console.error(err));
  */
 module.exports = (query, values) => {
   return client.query(query, values)
-  .then((result) => {
-    if (!result.rowCount) {
-      return [];
-    }
-    return result.rows;
-  })
-  .catch((error) => {
+    .then((result) => {
+      if (!result.rowCount) {
+        return [];
+      }
+      return result.rows;
+    })
+    .catch((error) => {
     // TODO: same return as if no challenges in database -------------------------
-    console.error(error);
-    return [];
-  });
+      console.error(error);
+      return [];
+    });
 };
