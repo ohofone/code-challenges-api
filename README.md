@@ -104,4 +104,4 @@ Given an object containing the question details and the time taken to complete t
  * Alexa Skill Kit
 
 #### UML
-![](./assets/401-24.jpg)
+![](./assets/codechallenge.jpg)
