@@ -7,7 +7,7 @@
 
 #### Documentation
 * [jsdoc](https://oh-of-one.herokuapp.com/docs)
-* [swagger] (https://oh-of-one.herokuapp.com/api-docs)
+* [swagger](https://oh-of-one.herokuapp.com/api-docs)
 
 ### Modules
 #### `determineChallenge.js`
