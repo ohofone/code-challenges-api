@@ -6,7 +6,7 @@
 ### Author: Melissa Stock, Jagdeep Singh, Bonnie Wang, Jesse Van Volkinburg
 
 #### Documentation
-* [jsdoc](http://xyz.com)
+* [jsdoc](https://oh-of-one.herokuapp.com/docs)
 
 ### Modules
 #### `determineChallenge.js`
