@@ -1,0 +1,236 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "code challenges api",
+    "description": "api for whiteboard interview questions",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://oh-of-one.herokuapp.com"
+    }
+  ],
+  "paths": {
+    "/question/{dataType}/{difficulty}/{userID}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "dataType",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "choose from string, array, linked list, or any"
+          },
+          {
+            "in": "path",
+            "name": "difficulty",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "choose from easy, medium, or hard"
+          },
+          {
+            "in": "path",
+            "name": "userID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "choose from easy, medium, or hard"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns a JSON question object according to specified data type and difficulty",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "question": {
+                      "type": "string",
+                      "description": "Interview question."
+                    },
+                    "dataTaype": {
+                      "type": "string",
+                      "description": "type of interview question"
+                    },
+                    "bigOTime": {
+                      "type": "string",
+                      "description": "time complexity"
+                    },
+                    "bigOSpace": {
+                      "type": "string",
+                      "description": "space complexity"
+                    },
+                    "difficulty": {
+                      "type": "string",
+                      "description": "difficulty of challenge"
+                    },
+                    "edgeCases": {
+                      "type": "string",
+                      "description": "edge cases for challenge"
+                    },
+                    "solution": {
+                      "type": "string",
+                      "description": "optimal solution to challenge"
+                    },
+                    "avg_time": {
+                      "type": "integer",
+                      "description": "average time user takes to complete challenge"
+                    },
+                    "completions": {
+                      "type": "integer",
+                      "description": "number of times challenge has been completed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://oh-of-one.herokuapp.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://oh-of-one.herokuapp.com"
+        }
+      ]
+    },
+    "/currentQuestion/:userID": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "returns a JSON question object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "question": {
+                      "type": "string",
+                      "description": "Interview question."
+                    },
+                    "dataTaype": {
+                      "type": "string",
+                      "description": "type of interview question"
+                    },
+                    "bigOTime": {
+                      "type": "string",
+                      "description": "time complexity"
+                    },
+                    "bigOSpace": {
+                      "type": "string",
+                      "description": "space complexity"
+                    },
+                    "difficulty": {
+                      "type": "string",
+                      "description": "difficulty of challenge"
+                    },
+                    "edgeCases": {
+                      "type": "string",
+                      "description": "edge cases for challenge"
+                    },
+                    "solution": {
+                      "type": "string",
+                      "description": "optimal solution to challenge"
+                    },
+                    "avg_time": {
+                      "type": "integer",
+                      "description": "average time user takes to complete challenge"
+                    },
+                    "completions": {
+                      "type": "integer",
+                      "description": "number of times challenge has been completed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://oh-of-one.herokuapp.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://oh-of-one.herokuapp.com"
+        }
+      ]
+    },
+    "/solution/:userID": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "returns a JSON question object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "question": {
+                      "type": "string",
+                      "description": "Interview question."
+                    },
+                    "dataTaype": {
+                      "type": "string",
+                      "description": "type of interview question"
+                    },
+                    "bigOTime": {
+                      "type": "string",
+                      "description": "time complexity"
+                    },
+                    "bigOSpace": {
+                      "type": "string",
+                      "description": "space complexity"
+                    },
+                    "difficulty": {
+                      "type": "string",
+                      "description": "difficulty of challenge"
+                    },
+                    "edgeCases": {
+                      "type": "string",
+                      "description": "edge cases for challenge"
+                    },
+                    "solution": {
+                      "type": "string",
+                      "description": "optimal solution to challenge"
+                    },
+                    "avg_time": {
+                      "type": "integer",
+                      "description": "average time user takes to complete challenge"
+                    },
+                    "completions": {
+                      "type": "integer",
+                      "description": "number of times challenge has been completed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://oh-of-one.herokuapp.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://oh-of-one.herokuapp.com"
+        }
+      ]
+    }
+  }
+}
