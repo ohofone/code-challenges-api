@@ -1,5 +1,6 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
+![](https://travis-ci.com/ohofone/code-challenges-api.svg?branch=master)
 
 ## Alexa Skills - Coding Interview Prep
 
